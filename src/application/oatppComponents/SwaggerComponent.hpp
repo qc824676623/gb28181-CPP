@@ -18,13 +18,12 @@ public:
         OATPP_COMPONENT(oatpp::Object<WebConfigDto>, webConfig);  // Get config component
 
         oatpp::swagger::DocumentInfo::Builder builder;
-
+        string url = "http://" + webConfig->swaggerHost + ":" + std::to_string(webConfig->port);
         builder.setTitle("视频平台api")
             .setDescription("支持gb28181的视频平台——CPP后端版本")
-            .setVersion("1.0")
-
-            .addServer("http://" + webConfig->swaggerHost, "server on localhost");
-
+            .setVersion("1.0") 
+            .addServer("http://" + webConfig->swaggerHost + ":" + std::to_string(webConfig->port),"测试地址");
+          
         return builder.build();
     }());
 
