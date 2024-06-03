@@ -60,6 +60,17 @@ make
 
 /config/dev_config.json文件中可以进行http服务配置、sip相关配置、和zlm相关配置
 
+使用說明：
+需要先安装和配置zlm，配置信息如下
+修改zlm编译路径下的/home/ZLMediaKit/release/linux/Debug/config.ini
+[hook]
+enable=1
+on_play=http://172.168.0.28:7788/index/hook/on_play
+on_publish=http://172.168.0.28:7788/index/hook/on_publish
+on_server_keepalive=http://172.168.0.28:7788/index/hook/on_server_keepalive
+on_stream_changed=http://172.168.0.28:7788/index/hook/on_stream_changed
+on_stream_none_reader=http://172.168.0.28:7788/index/hook/on_stream_none_reader
+上述IP和端口为本项目部署位置的IP地址和端口
 #### 查看swagger ui
 
 http://{host}:{port}/swagger/ui#/
