@@ -28,6 +28,8 @@ oatpp::Object<DTO::ZLM::ResponseDto> on_server_keepalive_api(
     std::string mediaServerId = onServerKeepaliveTiem->mediaServerId;
     g_ZlmMgr::GetInstance()->updateZlmServerHeartbeat(mediaServerId);
     auto response = DTO::ZLM::ResponseDto::createShared();
+    response->code = 0;
+    response->msg = "success:" + mediaServerId;
     return response;
 }
 
